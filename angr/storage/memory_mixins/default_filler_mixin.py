@@ -118,13 +118,13 @@ class DefaultFillerMixin(MemoryMixin):
                 what = "memory" if is_mem else "register"
                 l.warning("The program is accessing %s with an unspecified value. "
                           "This could indicate unwanted behavior.", what)
-                l.warning("angr will cope with this by generating an unconstrained symbolic variable and continuing. "
-                          "You can resolve this by:")
-                l.warning("1) setting a value to the initial state")
-                l.warning("2) adding the state option ZERO_FILL_UNCONSTRAINED_{MEMORY,REGISTERS}, "
-                          "to make unknown regions hold null")
-                l.warning("3) adding the state option SYMBOL_FILL_UNCONSTRAINED_{MEMORY,REGISTERS}, "
-                          "to suppress these messages.")
+                # l.warning("angr will cope with this by generating an unconstrained symbolic variable and continuing. "
+                #           "You can resolve this by:")
+                # l.warning("1) setting a value to the initial state")
+                # l.warning("2) adding the state option ZERO_FILL_UNCONSTRAINED_{MEMORY,REGISTERS}, "
+                #           "to make unknown regions hold null")
+                # l.warning("3) adding the state option SYMBOL_FILL_UNCONSTRAINED_{MEMORY,REGISTERS}, "
+                #           "to suppress these messages.")
 
             if is_mem:
                 refplace_int = self.state.solver.eval(self.state._ip)
