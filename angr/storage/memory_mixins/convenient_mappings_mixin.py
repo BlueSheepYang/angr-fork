@@ -88,7 +88,10 @@ class ConvenientMappingsMixin(MemoryMixin):
         return super().store(addr, data, size=size, **kwargs)
 
     def _default_value(self, addr, size, **kwargs):
-        d = super()._default_value(addr, size, **kwargs)
+        if options.SYMBOLIC_EXECUTE_TYPE == "normal":
+            d = super()._default_value(addr, size, **kwargs)
+        elif options.SYMBOLIC_EXECUTE_TYPE == "quick":
+            d = super()._default_value_improve(addr, size, **kwargs)
         if addr is not None:
             self._update_mappings(addr, None, d)
         return d

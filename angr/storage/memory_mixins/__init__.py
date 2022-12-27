@@ -117,6 +117,19 @@ class MemoryMixin(SimStatePlugin):
         """
         pass
 
+    def _default_value_improve(self, addr, size, name=None, inspect=True, events=True, key=None, **kwargs):
+        """
+        Override this method to provide default values for a variety of edge cases and base cases.
+
+        :param addr:    If this value is being filled to provide a default memory value, this will be its address.
+                        Otherwise, None.
+        :param size:    The size in bytes of the value to return
+        :param name:    A descriptive identifier for the value, for if a symbol is created.
+
+        The ``inspect``, ``events``, and ``key`` parameters are for ``state.solver.Unconstrained``, if it is used.
+        """
+        pass
+
     def _merge_values(self, values: Iterable[Tuple[Any,Any]], merged_size: int, **kwargs) -> Optional[Any]:
         """
         Override this method to provide value merging support.

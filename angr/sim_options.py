@@ -4,6 +4,12 @@
 import string
 from .sim_state_options import SimStateOptions
 
+# modify angr origin execute mode
+SYMBOLIC_EXECUTE_TYPE = None
+SYMBOLIC_READ_MEMORY_MIN_ADDR = None
+SYMBOLIC_READ_MEMORY_MAX_ADDR = None
+
+
 # This option controls whether or not constraints are tracked in the analysis.
 TRACK_CONSTRAINTS = "TRACK_CONSTRAINTS"
 
